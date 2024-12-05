@@ -9,9 +9,8 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error state
+    setError(""); 
 
-    // Validate inputs
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setError("Please enter a valid email address.");
       return;
@@ -22,19 +21,16 @@ const LoginForm = () => {
     }
 
     try {
-      // Send login request to API
       const response = await axios.post("https://reqres.in/api/login", {
         email,
         password,
       });
 
-      // On successful login, save the token and redirect to dashboard
       const { token } = response.data;
       localStorage.setItem("token", token);
       alert("Login successful!");
-      window.location.href = "/dashboard"; // Replace with React Router navigation if used
+      window.location.href = "/dashboard"; 
     } catch (err) {
-      // Handle login errors
       setError("Invalid email or password. Please try again.");
     }
   };
@@ -49,7 +45,6 @@ const LoginForm = () => {
         <div style={styles.formContainer}>
           <h2 style={styles.heading}>Admin Login</h2>
 
-          {/* Email Input */}
           <div style={styles.inputGroup}>
             <input
               type="email"
@@ -60,7 +55,6 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div style={styles.inputGroup}>
             <input
               type="password"
@@ -71,10 +65,8 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Error Message */}
           {error && <p style={styles.error}>{error}</p>}
 
-          {/* Submit Button */}
           <button type="submit" style={styles.button}>
             Login
           </button>
@@ -84,7 +76,6 @@ const LoginForm = () => {
   );
 };
 
-// Inline styles
 const styles = {
   container: {
     display: "flex",
@@ -143,23 +134,23 @@ const styles = {
     fontSize: "16px",
     border: "1px solid #ccc",
     borderRadius: "4px",
-    boxSizing: "border-box", // Ensures padding is included in width
+    boxSizing: "border-box",
   },
   button: {
     width: "100%",
     padding: "12px",
-    fontSize: "18px", // Larger text for better visibility
+    fontSize: "18px", 
     backgroundColor: "#245CD0",
     color: "#fff",
     border: "none",
     borderRadius: "4px",
     cursor: "pointer",
-    transition: "background-color 0.3s, transform 0.2s", // Add hover effect
+    transition: "background-color 0.3s, transform 0.2s",
     marginTop: "20px",
   },
   buttonHover: {
-    backgroundColor: "#0056b3", // Darker blue on hover
-    transform: "scale(1.05)", // Slight zoom effect on hover
+    backgroundColor: "#0056b3", 
+    transform: "scale(1.05)",
   },
   error: {
     color: "red",

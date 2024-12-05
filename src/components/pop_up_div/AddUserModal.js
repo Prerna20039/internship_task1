@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './AddUserModal.css'; // Add styling for modal
+import './AddUserModal.css';
 
 const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUser }) => {
   const [id, setId] = useState('');
@@ -8,7 +8,6 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-  // If there's a selected user (i.e., in edit mode), pre-fill the form fields
   useEffect(() => {
     if (selectedUser) {
       setId(selectedUser.id);
@@ -17,7 +16,6 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
       setLastName(selectedUser.last_name);
       setEmail(selectedUser.email);
     } else {
-      // Reset to empty values if no selected user
       setId('');
       setAvatar('');
       setFirstName('');
@@ -28,8 +26,7 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Create the new user object or updated user object
+
     const user = {
       id,
       avatar,
@@ -38,7 +35,6 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
       email,
     };
 
-    // Send POST or PUT request based on whether it's a new user or updating an existing one
     try {
       const response = await fetch(
         selectedUser ? `https://reqres.in/api/users/${id}` : 'https://reqres.in/api/users',
@@ -50,21 +46,18 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
           body: JSON.stringify(user),
         }
       );
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
-        // If user is successfully added or updated, call the appropriate parent function
         if (selectedUser) {
           onUserUpdated(data);
         } else {
           onUserAdded(data);
         }
-  
-        // Close the modal after submitting
+
         onClose();
       } else {
-        // Handle errors (e.g., invalid data)
         console.error('Error:', data);
       }
     } catch (error) {
@@ -88,7 +81,7 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded, onUserUpdated, selectedUse
                 value={id}
                 onChange={(e) => setId(e.target.value)}
                 required
-                disabled={selectedUser}  // Disable ID field if editing
+                disabled={selectedUser}
               />
             </div>
             <div className="input-group">

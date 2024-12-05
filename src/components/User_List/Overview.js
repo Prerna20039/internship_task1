@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Overview.css';
-import AddUserModal from '../pop_up_div/AddUserModal'; // Import the AddUserModal component
+import AddUserModal from '../pop_up_div/AddUserModal';
 
 const Overview = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null); // For editing
+  const [selectedUser, setSelectedUser] = useState(null); 
 
-  // Fetch users from API
+  
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -24,17 +24,14 @@ const Overview = () => {
     fetchUsers();
   }, []);
 
-  // Handle search functionality
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
 
-  // Handle sorting functionality
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
 
-  // Filter and sort the users
   const filteredUsers = users
     .filter(
       (user) =>
@@ -51,24 +48,20 @@ const Overview = () => {
       return 0;
     });
 
-  // Handle modal open
   const openModal = () => {
-    setSelectedUser(null); // Clear selected user when opening for adding a new user
+    setSelectedUser(null);
     setIsModalOpen(true);
   };
 
-  // Handle modal close
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedUser(null); // Reset selected user when closing modal
+    setSelectedUser(null); 
   };
 
-  // Handle when a new user is added
   const handleUserAdded = (newUser) => {
     setUsers((prevUsers) => [...prevUsers, newUser]);
   };
 
-  // Handle user update
   const handleUserUpdated = (updatedUser) => {
     setUsers((prevUsers) =>
       prevUsers.map((user) =>
@@ -77,14 +70,13 @@ const Overview = () => {
     );
   };
 
-  // Handle user delete
   const handleDeleteUser = async (id) => {
     try {
       const response = await fetch(`https://reqres.in/api/users/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
-        setUsers(users.filter((user) => user.id !== id)); // Remove user from state
+        setUsers(users.filter((user) => user.id !== id)); 
       } else {
         console.error('Failed to delete user');
       }
@@ -93,17 +85,14 @@ const Overview = () => {
     }
   };
 
-  // Handle user edit (open modal with pre-filled data)
   const handleEditUser = (user) => {
     setSelectedUser(user);
     setIsModalOpen(true);
   };
 
-  // Export functionality
   const handleExport = () => {
-    // Prepare the CSV data
     const csvRows = [
-      ['ID', 'Avatar', 'First Name', 'Last Name', 'Email'], // header row
+      ['ID', 'Avatar', 'First Name', 'Last Name', 'Email'], 
       ...users.map((user) => [
         user.id,
         user.avatar,
@@ -113,18 +102,14 @@ const Overview = () => {
       ]),
     ];
 
-    // Convert the rows into a CSV string
     const csvString = csvRows.map((row) => row.join(',')).join('\n');
 
-    // Create a Blob for the CSV data
     const blob = new Blob([csvString], { type: 'text/csv' });
 
-    // Create a temporary anchor element for downloading
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'user_data.csv'; // Name of the exported file
+    link.download = 'user_data.csv'; 
 
-    // Trigger the download
     link.click();
   };
 
@@ -160,13 +145,13 @@ const Overview = () => {
         </div>
       </div>
 
-      {/* Add/Edit User Modal */}
+    
       <AddUserModal
         isOpen={isModalOpen}
         onClose={closeModal}
         onUserAdded={handleUserAdded}
-        onUserUpdated={handleUserUpdated} // For updating the user
-        selectedUser={selectedUser} // Pass selected user for editing
+        onUserUpdated={handleUserUpdated} 
+        selectedUser={selectedUser}
       />
 
       <div className="content">
@@ -179,7 +164,7 @@ const Overview = () => {
                 <th>Avatar</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Actions</th> {/* New column for actions */}
+                <th>Actions</th> 
               </tr>
             </thead>
             <tbody>
@@ -198,7 +183,7 @@ const Overview = () => {
                   </td>
                   <td>{user.email}</td>
                   <td>
-                    {/* Edit and Delete icon buttons */}
+                   
                     <button
                       onClick={() => handleEditUser(user)}
                       className="icon-button edit-btn"

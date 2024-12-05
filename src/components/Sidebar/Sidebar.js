@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 
 const Sidebar = () => {
   return (

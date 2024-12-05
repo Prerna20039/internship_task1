@@ -1,4 +1,4 @@
-/* src/components/Sidebar.css */
+
 .sidebar {
     width: 250px;
     height: 95vh;
@@ -52,7 +52,7 @@
   }
   
   .main-content {
-    margin-left: 250px; /* Space for the sidebar */
+    margin-left: 250px; 
     padding: 20px;
   }
   li i{

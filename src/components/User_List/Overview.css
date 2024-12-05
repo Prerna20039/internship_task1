@@ -1,10 +1,8 @@
-/* Container styles */
 .overview-container {
     padding: 20px;
     font-family: Arial, sans-serif;
 }
 
-/* Header styles */
 .header {
     display: flex;
     justify-content: space-between;
@@ -12,7 +10,6 @@
     margin-bottom: 20px;
 }
 
-/* Search bar styles */
 .search-bar {
     width: 60%;
     padding: 8px 12px;
@@ -27,7 +24,6 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Sort dropdown styles */
 .sort-section {
     display: flex;
     align-items: center;
@@ -74,14 +70,7 @@
 .button2 i{
     margin-right: 8px;
 }
-/* Logged-in user styles */
-.logged-in-user {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-}
 
-/* Table styles */
 .table-container {
     max-height: 700px;
     overflow-y: auto;
@@ -97,20 +86,19 @@
 .user-table th, .user-table td {
     padding: 10px;
     text-align: left;
-    border: none; /* Remove all borders */
-    border-bottom: 1px solid #ddd; /* Add horizontal lines */
+    border: none; 
+    border-bottom: 1px solid #ddd; 
 }
 
 
 
-/* Avatar styling */
+
 .user-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-/* Scroll bar styles */
 .table-container::-webkit-scrollbar {
     width: 10px;
 }
@@ -123,7 +111,7 @@
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
 }
-/* Style the icon buttons */
+
 .icon-button {
     background: none;
     border: none;
@@ -136,15 +124,15 @@
   }
   
   .icon-button:hover {
-    color: #007bff; /* Change color on hover */
+    color: #007bff; 
   }
   
   .edit-btn {
-    color: #007bff; /* Green for edit */
+    color: #007bff; 
   }
   
   .delete-btn {
-    color: #dc3545; /* Red for delete */
+    color: #dc3545; 
   }
   
   .icon-button:focus {
