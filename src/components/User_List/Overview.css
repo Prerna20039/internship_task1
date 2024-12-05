@@ -1,0 +1,153 @@
+/* Container styles */
+.overview-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Search bar styles */
+.search-bar {
+    width: 60%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-bar:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Sort dropdown styles */
+.sort-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sort-dropdown {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: white;
+    color: #007bff;
+}
+.button i{
+    margin-right: 8px;
+}
+.button2 {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 50px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button2:hover {
+    background-color: #007bff;
+    color: white;
+}
+.button2 i{
+    margin-right: 8px;
+}
+/* Logged-in user styles */
+.logged-in-user {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Table styles */
+.table-container {
+    max-height: 700px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: left;
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid #ddd; /* Add horizontal lines */
+}
+
+
+
+/* Avatar styling */
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Scroll bar styles */
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+/* Style the icon buttons */
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 5px;
+    transition: color 0.3s;
+  }
+  
+  .icon-button:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
+  .edit-btn {
+    color: #007bff; /* Green for edit */
+  }
+  
+  .delete-btn {
+    color: #dc3545; /* Red for delete */
+  }
+  
+  .icon-button:focus {
+    outline: none;
+  }
+  
